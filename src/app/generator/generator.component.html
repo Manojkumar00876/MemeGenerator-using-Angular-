@@ -1,0 +1,52 @@
+<div class="app">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+               <div class="card">
+                <div class="card-body">
+                    <form >
+                        <div class="form-group">
+                            <label for="">Choose an image</label>
+                            <input type="file" class="form-control" accept="image/*" (change)="onChange($event)">
+                        </div>
+    
+                        <div class="form-group mt-2">
+                            <label for="">top text</label>
+                            <input type="text" class="form-control" name="topText" [(ngModel)] = 'topText' (keyup)="onText()">
+                        </div>
+    
+                        <div class="form-group  mt-2">
+                            <label for="">bottom text</label>
+                            <input type="text" class="form-control" name="bottomText" [(ngModel)] = 'bottomText' (keyup)="onText()">
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                               <div class="form-group">
+                                <label for="">Text color</label>
+                                <color-chrome (onChangeComplete)="changeTextColor($event)"></color-chrome>
+                               </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="">Background color</label>
+                                    <color-chrome  (onChangeComplete)="changeBgColor($event)"></color-chrome>
+                                   </div>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-outline-primary form-control btn-block mt-5" (click)="download()">Download</button>
+                   
+                    </form>
+                </div>
+               </div>
+            </div>
+
+            <div class="col-md-6">
+                <canvas #memeCanva height="580px" width="600px" >
+
+                </canvas>
+            </div>
+        </div>
+    </div>
+</div>
